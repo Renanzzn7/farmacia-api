@@ -1,4 +1,4 @@
-import type { MedicamentoDTO } from "../interfaces/MedicamentoDTO.js";
+import type { MedicamentoDTO } from "../interface/MedicamentoDTO.js";
 import Medicamento from "../model/Medicamento.js";
 import type { Request, Response } from "express";
 

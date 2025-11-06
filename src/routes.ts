@@ -1,7 +1,7 @@
 import { Router } from "express";
 import type { Request, Response } from "express";
-import ClienteController from "./controllers/ClienteController.js";
-import MedicamentoController from "./controllers/MedicamentoController.js";
+import ClienteController from "./controller/ClienteController.js";
+import MedicamentoController from "./controller/MedicamentoController.js";
 
 const router = Router();
 

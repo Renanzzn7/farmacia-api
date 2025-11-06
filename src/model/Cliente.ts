@@ -1,4 +1,4 @@
-import type { ClienteDTO } from "../interfaces/ClienteDTO.js";
+import type { ClienteDTO } from "../interface/ClienteDTO.js";
 import { DatabaseModel } from "./DatabaseModel.js";
 
 const database = new DatabaseModel().pool;
