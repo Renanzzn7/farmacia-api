@@ -1,0 +1,34 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build TypeScript
+dist/
+build/
+*.js
+*.js.map
+
+# Ambiente
+.env
+.env.test
+.env.local
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log
+
+# Testes
+coverage/
+
+# Outros
+package-lock.json
