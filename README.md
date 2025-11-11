@@ -1,4 +1,4 @@
-## Farmácia API
+# Farmácia API
 
 API desenvolvida em TypeScript com Node.js e Express, utilizando PostgreSQL para gerenciar clientes, produtos e pedidos de uma farmácia.
 
@@ -34,15 +34,15 @@ cd farmacia-api
 # Instale as dependências
 npm install
 
-# Configure o banco de dados PostgreSQL
-# Crie um arquivo .env com suas credenciais
-# Exemplo:
-# DB_HOST=localhost
-# DB_USER=postgres
-# DB_PASSWORD=sua_senha
-# DB_NAME=farmacia
+ Configure o banco de dados PostgreSQL
+ Crie um arquivo .env com suas credenciais
+ Exemplo:
+ DB_HOST=localhost
+ DB_USER=postgres
+ DB_PASSWORD=sua_senha
+ DB_NAME=farmacia
 
-# Execute a aplicação
+ Execute a aplicação
 npm run dev
 
 📫 Contato
