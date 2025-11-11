@@ -1,43 +1,28 @@
+## Farmácia API
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=2ecc71&height=120&section=header"/> <div align="center"> <h2>Farmácia API</h2> </div>
+API desenvolvida em TypeScript com Node.js e Express, utilizando PostgreSQL para gerenciar clientes, produtos e pedidos de uma farmácia.
 
-<div align="center"> <img width="49%" height="195px" src="https://github-readme-stats.vercel.app/api?username=Renanzzn7&show_icons=true&count_private=true&hide_border=true&title_color=2ecc71&icon_color=2ecc71&text_color=c9d1d9&bg_color=0d1117" alt="Renanzzn7 github stats" /> <img width="41%" height="195px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Renanzzn7&layout=compact&hide_border=true&title_color=2ecc71&icon_color=2ecc71&text_color=c9d1d9&bg_color=0d1117" alt="Top Languages"/> </div>
-📌 Descrição
+🛠️ Tecnologias
 
-A Farmácia API é um projeto desenvolvido em TypeScript com Node.js e Express, utilizando PostgreSQL como banco de dados, para gerenciar clientes, produtos e pedidos de uma farmácia. A API permite operações CRUD completas e testes simples via Postman.
+TypeScript
 
-🛠️ Stack Principal
-Linguagens e Frameworks:
+Node.js
 
+Express.js
 
+PostgreSQL
 
-
-
-
-Banco de Dados:
-
-Ferramentas e DevOps:
-
-
-
-
-
-
-
-
-
+Postman (para testes)
 
 🚀 Funcionalidades
 
-Cadastro e gerenciamento de clientes
+CRUD de clientes
 
-Cadastro e gerenciamento de produtos
+CRUD de produtos
 
 Criação e acompanhamento de pedidos
 
-Consultas e filtros via endpoints REST
-
-Testes de API via Postman
+Testes via Postman
 
 ⚡ Instalação
 # Clone o repositório
@@ -50,7 +35,7 @@ cd farmacia-api
 npm install
 
 # Configure o banco de dados PostgreSQL
-# Crie o arquivo .env com as credenciais do banco
+# Crie um arquivo .env com suas credenciais
 # Exemplo:
 # DB_HOST=localhost
 # DB_USER=postgres
@@ -62,10 +47,8 @@ npm run dev
 
 📫 Contato
 
-📧 renanvini1st@gmail.com
+Email: renanvini1st@gmail.com
 
-💼 LinkedIn: Renan Vinicius
+LinkedIn: Renan Vinicius
 
-🌐 GitHub: Renanzzn7
-
-<h3 align="center"> 🚀 Desenvolvendo soluções inteligentes, uma API de cada vez! </h3> <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=2ecc71&height=120&section=footer"/>
+GitHub: Renanzzn7
