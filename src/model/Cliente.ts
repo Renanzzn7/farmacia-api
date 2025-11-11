@@ -123,18 +123,17 @@ class Cliente {
     static async cadastrarCliente(cliente: ClienteDTO): Promise<boolean> {
         try {
             const queryInsertCliente = `
-                INSERT INTO clientes (nome, cpf, data_nascimento, telefone, email)
-                VALUES ($1, $2, $3, $4, $5)
+                INSERT INTO clientes (nome, cpf, telefone)
+                VALUES ($1, $2, $3)
                 RETURNING id_cliente;
             `;
 
             const respostaBD = await database.query(queryInsertCliente, [
                 cliente.nome.toUpperCase(),
                 cliente.cpf,
-                cliente.dataNascimento,
-                cliente.telefone,
-                cliente.email
+                 cliente.telefone
             ]);
+
 
             if (respostaBD.rows.length > 0) {
                 console.info(`Cliente cadastrado com sucesso. ID: ${respostaBD.rows[0].id_cliente}`);

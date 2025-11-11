@@ -30,9 +30,10 @@ class ClienteController extends Cliente {
             const dadosRecebidosCliente: ClienteDTO = req.body;
 
             // (Validação básica)
-            if (!dadosRecebidosCliente.nome || !dadosRecebidosCliente.cpf || !dadosRecebidosCliente.dataNascimento || !dadosRecebidosCliente.telefone || !dadosRecebidosCliente.email) {
-                return res.status(400).json({ mensagem: "Preencha todos os campos obrigatórios: nome, cpf, dataNascimento, telefone e email." });
-            }
+            if (!dadosRecebidosCliente.nome || !dadosRecebidosCliente.cpf || !dadosRecebidosCliente.telefone) {
+                return res.status(400).json({ mensagem: "Preencha todos os campos obrigatórios: nome, cpf e telefone." });
+}
+
 
             const respostaModelo = await Cliente.cadastrarCliente(dadosRecebidosCliente);
 
