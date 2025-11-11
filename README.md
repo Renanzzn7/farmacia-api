@@ -1,54 +1,42 @@
-# Farmácia API
+# 💊 Farmácia API
 
-API desenvolvida em TypeScript com Node.js e Express, utilizando PostgreSQL para gerenciar clientes, produtos e pedidos de uma farmácia.
+API REST desenvolvida com Node.js, Express e TypeScript para gerenciamento de clientes e medicamentos de uma farmácia.
 
-🛠️ Tecnologias
+## 🚀 Funcionalidades
 
-TypeScript
+- Listar todos os clientes
+- Cadastrar novo cliente
+- Buscar cliente por ID
+- Listar todos os medicamentos
+- Cadastrar novo medicamento
+- Buscar medicamento por ID
 
-Node.js
+## 📦 Tecnologias
 
-Express.js
+- Node.js
+- Express
+- TypeScript
+- PostgreSQL
 
-PostgreSQL
+## 📂 Rotas
 
-Postman (para testes)
+### Clientes
+- `GET /api/clientes` – Lista todos os clientes  
+- `POST /api/clientes` – Cadastra um novo cliente  
+- `GET /api/clientes/:idCliente` – Retorna um cliente específico  
 
-🚀 Funcionalidades
+### Medicamentos
+- `GET /api/medicamentos` – Lista todos os medicamentos  
+- `POST /api/medicamentos` – Cadastra um novo medicamento  
+- `GET /api/medicamentos/:idMedicamento` – Retorna um medicamento específico  
 
-CRUD de clientes
+## ▶️ Como rodar
 
-CRUD de produtos
+1. Clone o repositório  
+2. Instale as dependências com `npm install`  
+3. Configure o banco de dados no `.env`  
+4. Execute com `npm run dev`
 
-Criação e acompanhamento de pedidos
+---
 
-Testes via Postman
-
-⚡ Instalação
-# Clone o repositório
-git clone https://github.com/Renanzzn7/farmacia-api.git
-
-# Acesse a pasta do projeto
-cd farmacia-api
-
-# Instale as dependências
-npm install
-
- Configure o banco de dados PostgreSQL
- Crie um arquivo .env com suas credenciais
- Exemplo:
- DB_HOST=localhost
- DB_USER=postgres
- DB_PASSWORD=sua_senha
- DB_NAME=farmacia
-
- Execute a aplicação
-npm run dev
-
-📫 Contato
-
-Email: renanvini1st@gmail.com
-
-LinkedIn: Renan Vinicius
-
-GitHub: Renanzzn7
+[Renan Vinicius](https://github.com/Renanzzn7
