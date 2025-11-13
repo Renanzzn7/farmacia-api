@@ -26,6 +26,11 @@ class MedicamentoController extends Medicamento {
     static async novo(req: Request, res: Response): Promise<Response> {
         try {
             const dadosRecebidos: MedicamentoDTO = req.body;
+
+            if (!dadosRecebidos.nome || !dadosRecebidos.fabricante || dadosRecebidos.preco === undefined || dadosRecebidos.quantidade === undefined) {
+                return res.status(400).json({ mensagem: "Preencha todos os campos obrigatórios: nome, fabricante, preço e quantidade." });
+            }
+
             const respostaModelo = await Medicamento.cadastrarMedicamento(dadosRecebidos);
 
             if (respostaModelo) {
@@ -52,7 +57,7 @@ class MedicamentoController extends Medicamento {
 
             const respostaModelo = await Medicamento.listarMedicamento(idMedicamento);
 
-            if (respostaModelo === null) {
+            if (!respostaModelo) {
                 return res.status(200).json({ mensagem: "Nenhum medicamento encontrado com o ID fornecido." });
             }
 
@@ -62,6 +67,31 @@ class MedicamentoController extends Medicamento {
             return res.status(500).json({ mensagem: "Erro ao acessar dados do medicamento." });
         }
     }
+
+    /**
+     * Busca medicamentos por princípio ativo
+     */
+    static async porPrincipioAtivo(req: Request, res: Response): Promise<Response> {
+        try {
+            const principioAtivo = req.params.principioAtivo;
+            if (!principioAtivo) {
+                return res.status(400).json({ mensagem: "Princípio ativo é obrigatório." });
+            }
+
+            const listaMedicamentos = await Medicamento.listarMedicamentosPorPrincipio(principioAtivo);
+
+
+            if (!listaMedicamentos || listaMedicamentos.length === 0) {
+                return res.status(200).json({ mensagem: "Nenhum medicamento encontrado com o princípio ativo fornecido." });
+            }
+
+            return res.status(200).json(listaMedicamentos);
+        } catch (error) {
+            console.error(`Erro ao buscar medicamentos por princípio ativo: ${error}`);
+            return res.status(500).json({ mensagem: "Erro ao acessar medicamentos." });
+        }
+    }
 }
 
 export default MedicamentoController;
+export { MedicamentoController };

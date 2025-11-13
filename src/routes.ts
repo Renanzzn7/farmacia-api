@@ -24,6 +24,10 @@ router.post("/api/clientes", ClienteController.novo);
 // Retorna um cliente específico pelo ID
 router.get("/api/clientes/:idCliente", ClienteController.cliente);
 
+
+// Busca cliente pelo CPF
+router.get("/api/clientes/cpf/:cpf", ClienteController.clientePorCpf);
+
 /**
  * ======= MEDICAMENTOS =======
  */
@@ -35,5 +39,8 @@ router.post("/api/medicamentos", MedicamentoController.novo);
 
 // Retorna um medicamento específico pelo ID
 router.get("/api/medicamentos/:idMedicamento", MedicamentoController.medicamento);
+
+// Retorna medicamentos pelo princípio ativo
+router.get("/api/medicamentos/principio", MedicamentoController.listarMedicamentosPorPrincipio);
 
 export { router };

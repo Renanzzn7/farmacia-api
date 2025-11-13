@@ -29,11 +29,10 @@ class ClienteController extends Cliente {
         try {
             const dadosRecebidosCliente: ClienteDTO = req.body;
 
-            // (Validação básica)
+            // Validação básica
             if (!dadosRecebidosCliente.nome || !dadosRecebidosCliente.cpf || !dadosRecebidosCliente.telefone) {
                 return res.status(400).json({ mensagem: "Preencha todos os campos obrigatórios: nome, cpf e telefone." });
-}
-
+            }
 
             const respostaModelo = await Cliente.cadastrarCliente(dadosRecebidosCliente);
 
@@ -71,8 +70,38 @@ class ClienteController extends Cliente {
             return res.status(500).json({ mensagem: "Não foi possível recuperar o cliente." });
         }
     }
+
+    /**
+     * Retorna os dados de um cliente específico pelo CPF
+     */
+    static async clientePorCpf(req: Request, res: Response): Promise<Response> {
+        try {
+            const cpf = req.query.cpf as string;
+
+if (!cpf) {
+    return res.status(400).json({ mensagem: "CPF não informado." });
+}
+
+const cliente = await Cliente.listarClientePorCpf(cpf);
+
+
+            if (!cpf) {
+                return res.status(400).json({ mensagem: "CPF é obrigatório." });
+            }
+
+            const respostaModelo = await Cliente.listarClientePorCpf(cpf);
+
+            if (respostaModelo === null) {
+                return res.status(200).json({ mensagem: "Nenhum cliente encontrado com o CPF fornecido." });
+            }
+
+            return res.status(200).json(respostaModelo);
+        } catch (error) {
+            console.error(`Erro ao acessar o modelo por CPF. ${error}`);
+            return res.status(500).json({ mensagem: "Não foi possível recuperar o cliente." });
+        }
+    }
 }
 
 export default ClienteController;
 export { ClienteController };
-

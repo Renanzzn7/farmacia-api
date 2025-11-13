@@ -18,14 +18,6 @@ class Cliente {
     private telefone: string;
     private email: string;
 
-    /**
-     * Construtor da classe Cliente
-     * @param _nome Nome do cliente
-     * @param _cpf CPF do cliente
-     * @param _dataNascimento Data de nascimento do cliente
-     * @param _telefone Telefone do cliente
-     * @param _email E-mail do cliente
-     */
     constructor(
         _nome: string,
         _cpf: string,
@@ -131,9 +123,8 @@ class Cliente {
             const respostaBD = await database.query(queryInsertCliente, [
                 cliente.nome.toUpperCase(),
                 cliente.cpf,
-                 cliente.telefone
+                cliente.telefone
             ]);
-
 
             if (respostaBD.rows.length > 0) {
                 console.info(`Cliente cadastrado com sucesso. ID: ${respostaBD.rows[0].id_cliente}`);
@@ -169,7 +160,34 @@ class Cliente {
 
             return null;
         } catch (error) {
-            console.error(`Erro ao buscar cliente. ${error}`);
+            console.error(`Erro ao buscar cliente: ${error}`);
+            return null;
+        }
+    }
+
+    /**
+     * Busca um cliente pelo CPF
+     */
+    static async listarClientePorCpf(cpf: string): Promise<Cliente | null> {
+        try {
+            const querySelectCliente = `SELECT * FROM clientes WHERE cpf=$1;`;
+            const respostaBD = await database.query(querySelectCliente, [cpf]);
+
+            if (respostaBD.rowCount !== 0) {
+                const cliente = new Cliente(
+                    respostaBD.rows[0].nome,
+                    respostaBD.rows[0].cpf,
+                    respostaBD.rows[0].data_nascimento,
+                    respostaBD.rows[0].telefone,
+                    respostaBD.rows[0].email
+                );
+                cliente.setIdCliente(respostaBD.rows[0].id_cliente);
+                return cliente;
+            }
+
+            return null;
+        } catch (error) {
+            console.error(`Erro ao buscar cliente por CPF: ${error}`);
             return null;
         }
     }
